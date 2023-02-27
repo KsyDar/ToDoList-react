@@ -34,6 +34,7 @@ function ToDoListItem(props: PropType) {
                     className={props.item.isDone ? "todolist__item__title" : "todolist__item__title--done"}
                 >
                 {props.item.name}
+
                 </span>
             </div>
 

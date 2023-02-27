@@ -1,0 +1,157 @@
+.todolist {
+  width: 100%;
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    &__checkbox {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+    }
+
+    &__title {
+      color: #00BD68;
+
+      &--done {
+        color: #f72414;
+        text-decoration: line-through;
+      }
+    }
+
+    &__button {
+      margin-left: 1rem;
+    }
+  }
+}
+
+
+ .todolist__item__checkbox * {
+   -webkit-tap-highlight-color: transparent;
+   outline: none;
+ }
+
+.todolist__item__checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.todolist__item__checkbox label {
+  --size: 2rem;
+  --shadow: calc(var(--size) * .07) calc(var(--size) * .1);
+
+  position: relative;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  margin: 0 auto;
+  margin-right: 1rem;
+  background-color: #f72414;
+  border-radius: 50%;
+  box-shadow: 0 var(--shadow) #ffbeb8;
+  cursor: pointer;
+  transition: 0.2s ease transform, 0.2s ease background-color,
+  0.2s ease box-shadow;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.todolist__item__checkbox label:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: calc(var(--size) * .7);
+  height: calc(var(--size) * .7);
+  margin: 0 auto;
+  background-color: #fff;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  box-shadow: inset 0 var(--shadow) #ffbeb8;
+  transition: 0.2s ease width, 0.2s ease height;
+}
+
+.todolist__item__checkbox label:hover:before {
+  width: calc(var(--size) * .55);
+  height: calc(var(--size) * .55);
+  box-shadow: inset 0 var(--shadow) #ff9d96;
+}
+
+.todolist__item__checkbox label:active {
+  transform: scale(0.9);
+}
+
+.todolist__item__checkbox .tick-mark {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  left: calc(var(--size) * -.05);
+  width: calc(var(--size) * .6);
+  height: calc(var(--size) * .6);
+  margin: 0 auto;
+  margin-left: calc(var(--size) * .14);
+  transform: rotateZ(-40deg);
+}
+
+.todolist__item__checkbox .tick-mark:before,
+.todolist__item__checkbox .tick-mark:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s ease transform, 0.2s ease opacity;
+}
+
+.todolist__item__checkbox .tick-mark:before {
+  left: 0;
+  bottom: 0;
+  width: calc(var(--size) * .1);
+  height: calc(var(--size) * .3);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.23);
+  transform: translateY(calc(var(--size) * -.68));
+}
+
+.todolist__item__checkbox .tick-mark:after {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: calc(var(--size) * .1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.23);
+  transform: translateX(calc(var(--size) * .78));
+}
+
+.todolist__item__checkbox input[type="checkbox"]:checked + label {
+  background-color: #07d410;
+  box-shadow: 0 var(--shadow) #92ff97;
+}
+
+.todolist__item__checkbox input[type="checkbox"]:checked + label:before {
+  width: 0;
+  height: 0;
+}
+
+.todolist__item__checkbox input[type="checkbox"]:checked + label .tick-mark:before,
+.todolist__item__checkbox input[type="checkbox"]:checked + label .tick-mark:after {
+  transform: translate(0);
+  opacity: 1;
+}
+
+
+
+
